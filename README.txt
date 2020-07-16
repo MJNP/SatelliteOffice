@@ -1,0 +1,2 @@
+﻿The feature I have created can also be converted into a pure JavaScript/jQuery approach since we're fetching data from a Web API 
+but since the job description for this job opening also requires C# & ASP.Net, I decided to do it this way. 

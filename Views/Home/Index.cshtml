@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SatelliteOffice.Models.COVID19.CovidInformation>;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="m-3">
+
+        <div class="jumbotron p-3 p-md-5 text-white rounded bg-info">
+            <div class="col-md-8 px-0">
+                <h1 class="display-4 font-italic">COVID-19 News</h1>
+                <p class="lead my-3">Practice social distancing. Raise awareness. Keep safe and healthy! <br/> The information display in this page is fetched from an API.</p>
+                <p class="lead mb-0"><a target="_blank" href="https://documenter.getpostman.com/view/4074074/SzS7Pkup?version=latest" class="text-white font-weight-bold">Read API here</a></p>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <strong class="d-inline-block mb-2 text-primary">@Html.DisplayFor(modelItem => item.Country)</strong>
+                            <h3 class="mb-0">
+                                @Html.DisplayFor(modelItem => item.TotalCases) Total Cases
+                            </h3>
+                            <p class="card-text mt-3 mb-auto">
+                                <strong>@Html.DisplayFor(modelItem => item.NewCases)</strong> New Cases <br />
+                                <strong>@Html.DisplayFor(modelItem => item.TotalRecovered)</strong> Total Recovered <br />
+                                <strong>@Html.DisplayFor(modelItem => item.TotalDeaths)</strong> Total Deaths
+                            </p>
+                        </div>
+                        <img class="card-img-right flex-auto d-none d-md-block" style="width: 350px; height: 250px;" src="@Html.DisplayFor(modelItem => item.Flag)" data-holder-rendered="true">
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
